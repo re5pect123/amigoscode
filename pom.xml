@@ -12,7 +12,7 @@
     <name>amigosservices</name>
 
     <modules>
-        <module>customerRequest</module>
+        <module>customer</module>
     </modules>
 
     <properties>
