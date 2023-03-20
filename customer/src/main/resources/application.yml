@@ -1,0 +1,6 @@
+server:
+  port: 8053
+
+spring:
+  application:
+    name: customer
