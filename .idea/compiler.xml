@@ -8,11 +8,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="fraud" />
-        <module name="customerRequest" />
+        <module name="customer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="customer" target="17" />
+      <module name="customerRequest" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
