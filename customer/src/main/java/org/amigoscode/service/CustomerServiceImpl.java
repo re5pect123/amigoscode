@@ -30,13 +30,13 @@ public class CustomerServiceImpl implements CustomerService {
 
 log.info("TEST1");
         String forObject = restTemplate.getForObject(
-                "http://localhost:8005/api/v1/fraud-check/{customerId}",
+                "http://FRAUD/api/v1/fraud-check/{customerId}",
                 String.class,
                 customer.getId()
         );
 log.info("TEST2");
         if (forObject.equals("OK")) {
-            throw new IllegalStateException("PREVARANT");
+            return "NIJE PREVARANT";
         }
 
 
