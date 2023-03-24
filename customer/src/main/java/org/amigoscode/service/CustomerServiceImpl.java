@@ -1,5 +1,6 @@
 package org.amigoscode.service;
 
+import com.example.clients.FraudClient;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.amigoscode.domain.Customer;
@@ -18,6 +19,8 @@ public class CustomerServiceImpl implements CustomerService {
 
     private final RestTemplate restTemplate;
 
+    private final FraudClient fraudClient;
+
     @Override
     public String info(CustomerRequest customerRequest) {
 
@@ -28,17 +31,11 @@ public class CustomerServiceImpl implements CustomerService {
 
         customerRepository.saveAndFlush(customer);
 
-log.info("TEST1");
-        String forObject = restTemplate.getForObject(
-                "http://FRAUD/api/v1/fraud-check/{customerId}",
-                String.class,
-                customer.getId()
-        );
-log.info("TEST2");
-        if (forObject.equals("OK")) {
-            return "NIJE PREVARANT";
-        }
+        log.info("TEST1");
 
+        String fraudster = fraudClient.isFraudster(customer.getId());
+
+        log.info("DOBIJEN ODGOVOR NAKON ZAHTEVA FRAUD-u {} ", fraudster);
 
         return "OK";
     }

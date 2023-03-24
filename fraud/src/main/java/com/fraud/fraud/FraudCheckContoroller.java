@@ -20,6 +20,8 @@ public class FraudCheckContoroller {
     @GetMapping(path = "{customerId}")
     public String isFraudster(@PathVariable("customerId") Integer customerId){
 
+        log.info("Stigao je zahtev od customer servisa na fraud sa customerId {}", customerId);
+
         boolean isFraudlentCustomer = fraudCheckService.isFraudlentCustomer(customerId);
             log.info("Da li je korisnik prevarant kao andja? {}", isFraudlentCustomer);
         return "OK";
