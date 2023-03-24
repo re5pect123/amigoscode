@@ -14,7 +14,7 @@ public class FraudCheckService {
     public boolean isFraudlentCustomer(Integer customerId) {
 
         FraudCheckHistory fraudCheckHistory = FraudCheckHistory.builder()
-                .isFraudster(false)
+                .isFraudster(true)
                 .customerId(customerId)
                 .createdAt(LocalDateTime.now())
                 .build();
